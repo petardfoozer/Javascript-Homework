@@ -1,0 +1,25 @@
+.headerTitle{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center; 
+}
+
+.searchArea{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.pageDescription{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	text-align: center; 
+}
+
+#ibuRange{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}

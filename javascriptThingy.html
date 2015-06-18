@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="beerList.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	
+	
+	<body>
+	
+	<nav class="navbar navbar-default">
+	<div class="headerTitle"><h1>The World's Greatest Beer List 1.0</h1></div>
+	
+		<div class="pageDescription"> The point of this litte app is you enter a few details of types of beers you like, and it will go fetch you a list of delicious beers to quench your thirst </div>
+		<div class="searchArea">		
+			<input type="range" id="ibuRange" placeholder="IBUs (International Bitterness Units, the higher, the more bitter!" min="0" max="15"></input>
+			<button type="button" class="btn btn-info" onclick="getBeerList()">Get me a list!</button>
+			
+		</div>
+	</nav>
+	
+	<div class="displayArea" style="height: 100%; width:100%;">
+		
+	</div>
+	
+	
+	
+	</body>
+	
+		<!-- Brewery DB API URL and API Key  --> 
+
+		<script type="text/javascript">
+		
+		var getBeerList = function(){
+			$.ajax({
+				method: 'GET',
+				url:'beerData.json',
+				beforeSend: function( xhr ) {
+					xhr.overrideMimeType( "application/json" );
+				},
+				dataType: 'json',
+				success: function(data){
+					$.each(data.data, function(index, value){
+							$('.displayArea').append('<pre>' + value.name + '</pre>');
+						});				
+				}
+			})
+			
+		};		
+		
+		</script>
+</html>
